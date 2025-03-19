@@ -2,7 +2,9 @@ function App() {
 
   return (
     <>
-      holis
+      <h1 className="text-primary font-RH">
+        Hello World
+      </h1>
     </>
   )
 }
