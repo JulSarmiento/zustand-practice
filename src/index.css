@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: 'red-hat-text';
-  src: url(./assets/fonts/RedHatText-Regular.woff2) format('woff2');
+  src: url('./assets/fonts/RedHatText-VariableFont_wght.ttf') format('woff2');
   font-weight: 400, 600, 700;
 }
 

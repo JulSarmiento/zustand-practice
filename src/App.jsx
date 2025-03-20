@@ -1,7 +1,7 @@
 import './plugins/i18n';
 import Title from './components/ui/Texts/Title';
 import { useTranslation } from 'react-i18next';
-
+import CardContainer from './components/cardsContainer/CardContainer';
 
 function App() {
   const { t } = useTranslation();
@@ -15,6 +15,7 @@ function App() {
         >
           {t('home.title')}
         </Title>
+        <CardContainer />
       </main>
       <aside>
         <Title
