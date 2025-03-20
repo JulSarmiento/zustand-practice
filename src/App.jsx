@@ -1,3 +1,5 @@
+import Icon from './components/ui/Images/Icon';
+
 function App() {
 
   return (
@@ -5,7 +7,7 @@ function App() {
       <h1 className="text-primary font-RH">
         Hello World
       </h1>
-      <i className="fas fa-home text-secondary"></i>
+      <Icon name="fa-heart" className="text-rose-300" height={10} width={10} />
     </>
   )
 }
