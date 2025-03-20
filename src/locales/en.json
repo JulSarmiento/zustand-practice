@@ -1,0 +1,26 @@
+{
+  "translations": {
+    "home": {
+      "title": "Desserts"
+    },
+    "cart": {
+      "title": "Your Cart",
+      "empty": "Your cart is empty",
+      "total": "Order Total",
+      "note": "This is a carbon-neutral shipment",
+      "checkout": "Confirm Order"
+    },
+    "confirm": {
+      "success": {
+        "title": "Order Confirmed",
+        "message": "Your order has been successfully confirmed",
+        "newOrder": "New Order"
+      },
+      "error": {
+        "title": "Error Confirming Order",
+        "message": "There was an error confirming your order, please try again",
+        "tryAgain": "Try Again"
+      }
+    }
+  }
+}
