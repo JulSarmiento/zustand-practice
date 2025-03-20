@@ -2,14 +2,13 @@ import Card from '../card/Card';
 import useProducts from '../../hooks/useApi';
 
 const CardContainer = () => {
-
   const { data: products } = useProducts();
-
-  console.log("Data", products);
 
   return (
     <div className="card-container">
-      holis
+      {products?.map((product) => (
+        <Card key={product.id} product={product} />
+      ))}
     </div>
   );
 };

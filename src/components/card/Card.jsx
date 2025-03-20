@@ -1,10 +1,9 @@
-import Image from '../ui/Images/Image';
+import Image from '../ui/images/Image';
 
 const Card = ({ product }) => {
   return (
     <div className='p-4 bg-white shadow-md rounded-md'>
-      {product}
-      <Image src={product.image} alt={product.name} className='w-full h-64 object-cover' />
+      <Image image={product.image} name={product.name} className='w-full h-64 object-cover' />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import './plugins/i18n';
-import Title from './components/ui/Texts/Title';
+import Title from './components/ui/texts/Title';
 import { useTranslation } from 'react-i18next';
-import CardContainer from './components/cardsContainer/CardContainer';
+import CardContainer from './components/cardsContainer/CardsContainer';
 
 function App() {
   const { t } = useTranslation();
