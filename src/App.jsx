@@ -1,14 +1,30 @@
-import Icon from './components/ui/Images/Icon';
+import './plugins/i18n';
+import Title from './components/ui/Texts/Title';
+import { useTranslation } from 'react-i18next';
+
 
 function App() {
+  const { t } = useTranslation();
 
   return (
-    <>
-      <h1 className="text-primary font-RH">
-        Hello World
-      </h1>
-      <Icon name="fa-heart" className="text-rose-300" height={10} width={10} />
-    </>
+    <div className='flex flex-col justify-between p-4 md:p-10'>
+      <main >
+        <Title
+          as="h1"
+          className="text-3xl text-rose-900 font-semibold place-self-start"
+        >
+          {t('home.title')}
+        </Title>
+      </main>
+      <aside>
+        <Title
+          as="h2"
+          className="text-2xl text-rose-900 font-semibold place-self-start"
+        >
+          {t('cart.title')}
+        </Title>
+      </aside>
+    </div>
   )
 }
 
