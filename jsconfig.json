@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "ESNext",
+    "paths": {
+      "@app": [
+        "src/App.jsx"
+      ],
+      "@router": [
+        "src/router.jsx"
+      ],
+      "@*": [
+        "src/*"
+      ],
+    }
+  }
+}

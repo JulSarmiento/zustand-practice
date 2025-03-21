@@ -1,13 +1,22 @@
-import './plugins/i18n';
-import Title from './components/ui/texts/Title';
+import '@plugins/i18n';
 import { useTranslation } from 'react-i18next';
-import CardContainer from './components/cardsContainer/CardsContainer';
+import Title from '@components/ui/texts/Title';
+import CardContainer from '@components/cardsContainer/CardsContainer';
 
+/**
+ * Componente principal de la aplicación.
+ * Este componente organiza la estructura principal de la interfaz dividiéndola en 
+ * un área principal (`main`) y una barra lateral (`aside`). Utiliza traducciones 
+ * para los títulos de las secciones mediante el hook `useTranslation`.
+ * @function
+ * @returns {JSX.Element} La estructura principal de la aplicación.
+ * @example <App />
+ */
 function App() {
   const { t } = useTranslation();
 
   return (
-    <div className='flex flex-col justify-between p-4 md:p-10'>
+    <div className='flex flex-col justify-between p-4 md:p-10 lg:flex-row'>
       <main >
         <Title
           as="h1"
