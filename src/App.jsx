@@ -16,7 +16,7 @@ function App() {
   const { t } = useTranslation();
 
   return (
-    <div className='flex flex-col justify-between p-4 md:p-10 lg:flex-row bg-rose-50'>
+    <div className='min-h-screen flex flex-col justify-between p-4 md:p-10 lg:flex-row bg-rose-50'>
       <main >
         <Title
           as="h1"

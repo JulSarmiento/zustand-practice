@@ -30,11 +30,11 @@ const Card = ({ product }) => {
     <div className='rounded-md w-full md:max-w-md'>
       <div className='relative'>
         <Image src={product.image} alt={product.name} srcSet={srcSet} className='w-full h-[200px] rounded-xl object-cover' />
-        <ButtonContainer className='absolute bottom-0 w-full'>
-          <Button className='w-full bg-white border-2-primary py-2 rounded-md font-semibold'>Add to Cart</Button>
+        <ButtonContainer className='absolute w-full flex justify-center -bottom-5 left-0'>
+          <Button className='w-[60%] h-9 bg-white border-2 border-rose-500 py-1 rounded-2xl font-semibold'>Add to Cart</Button>
         </ButtonContainer> 
       </div>
-      <div className='my-2 font-RH'>
+      <div className='mt-6 font-RH'>
         <Title as='h3' className='text-sm font-RH text-rose-300'>{product.category}</Title>
         <Title as='h2' className='text-base font-semibold  text-rose-900'>{product.name}</Title>
         <Title as='h4' className='text-sm font-semibold text-primary'>{priceFormart(product.price)}</Title>

@@ -1,7 +1,7 @@
 const button = ({ children, className, onClick, ...rest }) => {
   return (
     <button
-      className={`bg-primary text-white py-2 rounded-md font-semibold ${className}`}
+      className={`focus:outline-none ${className}`}
       onClick={onClick}
       {...rest}
     >
