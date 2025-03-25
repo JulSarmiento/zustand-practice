@@ -8,7 +8,7 @@
        "title": "Tu Carrito",
        "empty": "Tu carrito está vacío",
        "total": "Total Orden",
-       "note": "Este es un envio con emosiones neutrales",
+      "note": "Envío con emociones neutrales",
        "checkout": "Confirmar Orden"
     },
     "confirm": {

@@ -33,7 +33,7 @@ const Card = ({ product }) => {
   const count = 1;
 
   return (
-    <div className='rounded-md w-full md:max-w-md '>
+    <div className='rounded-md w-full md:max-w-md lg:max-w-xl '>
       <div
         className={`relative cursor-pointer ${active ? 'border-3 border-rose-400 rounded-xl' : 'border-3 border-transparent rounded-xl'} `}
       >
@@ -42,7 +42,7 @@ const Card = ({ product }) => {
           {
             active ?
               <Button
-                className='w-[50%] lg:w-[65%] flex justify-between items-center px-4 text-rose-50 text-sm h-9 bg-primary py-1 rounded-2xl font-semibold '
+                className='w-[60%] lg:w-[65%] flex justify-between items-center px-4 text-rose-50 text-sm h-9 bg-primary py-1 rounded-2xl font-semibold '
               >
                 <i 
                   onClick={count > 1 ? () => count - 1 : () => setActive(false)}
@@ -56,7 +56,7 @@ const Card = ({ product }) => {
               :
               <Button
                 onClick={() => setActive(true)}
-                className='w-[50%] lg:w-[65%] flex justify-center items-center text-xs h-9 bg-white border-[1px] border-rose-500 py-1 rounded-2xl font-semibold hover:bg-rose-100 transition-colors duration-300'
+                className='w-[60%] lg:w-[65%] flex justify-center items-center text-sm h-9 bg-white border-[1px] border-rose-500 py-1 rounded-2xl font-semibold hover:bg-rose-100 transition-colors duration-300'
               >
                 <i className='fas fa-shopping-cart mr-2 hover:shadow-md transition-colors duration-300'></i>
                 <p>

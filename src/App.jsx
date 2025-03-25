@@ -3,6 +3,9 @@ import { useTranslation } from 'react-i18next';
 import Title from '@components/ui/texts/Title';
 import CardContainer from '@components/cardsContainer/CardsContainer';
 import CartCardContainer from '@components/cardsContainer/CartCardContainer';
+import Modal from '@components/modales/Modal';
+import priceFormart from '@utils/priceFormat';
+import { useState } from 'react';
 
 /**
  * Componente principal de la aplicación.
@@ -15,12 +18,13 @@ import CartCardContainer from '@components/cardsContainer/CartCardContainer';
  */
 function App() {
   const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
 
   const count = 1
 
   return (
-    <div className='min-h-screen flex flex-col justify-between p-4 md:p-10 lg:flex-row bg-rose-50'>
-      <main >
+    <div className='min-h-screen font-RH flex flex-col justify-between p-4 md:p-10 lg:flex-row bg-rose-50'>
+      <main className='w-full'>
         <Title
           as="h1"
           className="text-3xl text-rose-900 mb-10 font-semibold place-self-start"
@@ -29,14 +33,40 @@ function App() {
         </Title>
         <CardContainer />
       </main>
-      <aside className='bg-white rounded-xl p-4 md:p-10 lg:w-1/3 '>
+      <aside className='w-full bg-white h-[50%] rounded-xl p-4 md:m-10 lg:w-[60%] xl:w-[50%]'>
         <Title
           as="h2"
-          className="text-2xl text-primary font-bold place-self-start"
+          className="text-2xl mb-6 text-primary font-bold place-self-start"
         >
           {`${t('cart.title')} (${count})`}
         </Title>
         <CartCardContainer />
+        <div>
+          <div className='w-full flex justify-between my-5'>
+            <p className='text-rose-500 font-semibold text-lg'>
+              {t('cart.total')}
+            </p>
+            <p className='text-black text-2xl font-bold'>
+              {priceFormart(100)}
+            </p>
+          </div>
+          <div className='px-4 py-2 bg-rose-50 rounded-xl flex justify-center gap-2 items-center'>
+            <i className='fas fa-tree text-secondary' />
+            <p>
+              {t('cart.note')}
+            </p>
+          </div>
+          <button 
+          onClick={() => {}}
+          className='w-full bg-primary rounded-4xl text-white py-4 mt-5 font-semibold'>
+            {t('cart.checkout')}
+          </button>
+          <Modal isOpen={() => setIsOpen(true)} onClose={() => setIsOpen(false)}>
+            <p>
+              {t('cart.modal')}
+            </p>
+          </Modal>
+        </div>
       </aside>
     </div>
   )

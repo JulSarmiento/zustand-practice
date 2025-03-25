@@ -7,12 +7,12 @@ const CartCardContainer = () => {
     price: 100,
     quantity: 1
   };
-  
-    return (
-        <div className="cartCardContainer">
-            <CartCard product={item}/>
-        </div>
-    );
+
+  return (
+    <div className="cartCardContainer">
+      <CartCard product={item} />
+    </div>
+  );
 };
 
 export default CartCardContainer;

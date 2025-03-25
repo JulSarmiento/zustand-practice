@@ -11,13 +11,10 @@ import useProducts from '@hooks/useApi';
  * @example <CardContainer />
  */
 const CardContainer = () => {
-
   const { data: products } = useProducts();
 
-  console.log("Data", products);
-
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place gap-6">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 place gap-6">
       {products?.map((product, index) => (
         <Card key={index} product={product} />
       ))}
