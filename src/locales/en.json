@@ -1,7 +1,8 @@
 {
   "translations": {
     "home": {
-      "title": "Desserts"
+      "title": "Desserts",
+      "button": "Add to Cart"
     },
     "cart": {
       "title": "Your Cart",

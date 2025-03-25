@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import backApi from '@plugins/axios';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Hook personalizado para realizar solicitudes a una API y manejar el estado de los datos, la carga y los errores.
@@ -19,15 +20,18 @@ import backApi from '@plugins/axios';
  * }
  * return <div>{JSON.stringify(data)}</div>;
  */
-const useApi = (url) => {
+const useApi = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { i18n } = useTranslation();
+
+  console.log('Language:', i18n.language); //
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await backApi.get(url);
+        const response = await backApi.get(`${i18n.language}.json`);
         console.log('Fetched data:', response.data); // Debugging log
         setData(response.data);
       } catch (error) {
@@ -39,7 +43,7 @@ const useApi = (url) => {
 
     fetchData();
   }
-  , [url]);
+  , [i18n.language]);
 
   return {
     data,
@@ -56,6 +60,6 @@ const useApi = (url) => {
  * @returns {any} Los datos obtenidos desde el endpoint `/data.json`.
  * @example const products = useProducts();
  */
-const useProducts = () => useApi('/data.json');
+const useProducts = () => useApi();
 
 export default useProducts;

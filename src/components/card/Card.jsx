@@ -3,6 +3,8 @@ import ButtonContainer from '@components/buttonsContainer/ButtonContainer';
 import Image from '@components/ui/images/Image';
 import Title from '@components/ui/texts/Title';
 import priceFormart from '@utils/priceFormat';
+import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 /**
  * Componente Card
@@ -19,6 +21,8 @@ import priceFormart from '@utils/priceFormat';
  * @example <Card product={product} />
  */
 const Card = ({ product }) => {
+  const [active, setActive] = useState(false);
+  const { t } = useTranslation();
   const srcSet = `
     ${product.image.thumbnail} 480w,
     ${product.image.mobile} 768w,
@@ -26,17 +30,45 @@ const Card = ({ product }) => {
     ${product.image.desktop} 1920w
 `;
 
+  const count = 1;
+
   return (
-    <div className='rounded-md w-full md:max-w-md'>
-      <div className='relative'>
-        <Image src={product.image} alt={product.name} srcSet={srcSet} className='w-full h-[200px] rounded-xl object-cover' />
+    <div className='rounded-md w-full md:max-w-md '>
+      <div
+        className={`relative cursor-pointer ${active ? 'border-3 border-rose-400 rounded-xl' : 'border-3 border-transparent rounded-xl'} `}
+      >
+        <Image src={product.image} alt={product.name} srcSet={srcSet} className='w-full h-[200px] rounded-xl object-cover hover:opacity-90 transition-opacity duration-300' />
         <ButtonContainer className='absolute w-full flex justify-center -bottom-5 left-0'>
-          <Button className='w-[60%] h-9 bg-white border-2 border-rose-500 py-1 rounded-2xl font-semibold'>Add to Cart</Button>
-        </ButtonContainer> 
+          {
+            active ?
+              <Button
+                className='w-[50%] lg:w-[65%] flex justify-between items-center px-4 text-rose-50 text-sm h-9 bg-primary py-1 rounded-2xl font-semibold '
+              >
+                <i 
+                  onClick={count > 1 ? () => count - 1 : () => setActive(false)}
+                  className='fas fa-minus-circle hover:shadow-md transition-colors duration-300'
+                />
+                <p>
+                  {count}
+                </p>
+                <i className='fas fa-plus-circle'/>
+              </Button>
+              :
+              <Button
+                onClick={() => setActive(true)}
+                className='w-[50%] lg:w-[65%] flex justify-center items-center text-xs h-9 bg-white border-[1px] border-rose-500 py-1 rounded-2xl font-semibold hover:bg-rose-100 transition-colors duration-300'
+              >
+                <i className='fas fa-shopping-cart mr-2 hover:shadow-md transition-colors duration-300'></i>
+                <p>
+                  {t('home.button')}
+                </p>
+              </Button>
+          }
+        </ButtonContainer>
       </div>
       <div className='mt-6 font-RH'>
         <Title as='h3' className='text-sm font-RH text-rose-300'>{product.category}</Title>
-        <Title as='h2' className='text-base font-semibold  text-rose-900'>{product.name}</Title>
+        <Title as='h2' className='text-base font-semibold text-rose-900 hover:text-rose-700 transition-colors duration-300'>{product.name}</Title>
         <Title as='h4' className='text-sm font-semibold text-primary'>{priceFormart(product.price)}</Title>
       </div>
     </div>
