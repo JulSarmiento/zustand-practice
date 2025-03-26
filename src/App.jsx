@@ -22,8 +22,12 @@ function App() {
 
   const count = 1
 
+  const setModal = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
-    <div className='min-h-screen font-RH flex flex-col justify-between p-4 md:p-10 lg:flex-row bg-rose-50'>
+    <div className={`min-h-screen font-RH flex flex-col justify-between p-4 md:p-10 lg:flex-row bg-rose-50 ${isOpen ? 'blur-xs' : ''}`}>
       <main className='w-full'>
         <Title
           as="h1"
@@ -33,7 +37,7 @@ function App() {
         </Title>
         <CardContainer />
       </main>
-      <aside className='w-full bg-white h-[50%] rounded-xl p-4 md:m-10 lg:w-[60%] xl:w-[50%]'>
+      <aside className='w-full bg-white h-[50%] rounded-xl p-4 md:mt-4 lg:mt-0 lg:w-[60%] xl:w-[50%]'>
         <Title
           as="h2"
           className="text-2xl mb-6 text-primary font-bold place-self-start"
@@ -56,15 +60,29 @@ function App() {
               {t('cart.note')}
             </p>
           </div>
-          <button 
-          onClick={() => {}}
-          className='w-full bg-primary rounded-4xl text-white py-4 mt-5 font-semibold'>
+          <button
+            onClick={() => setIsOpen(true)}
+            className='w-full bg-primary rounded-4xl text-white py-4 mt-5 font-semibold'>
             {t('cart.checkout')}
           </button>
-          <Modal isOpen={() => setIsOpen(true)} onClose={() => setIsOpen(false)}>
-            <p>
-              {t('cart.modal')}
-            </p>
+          <Modal
+            isOpen={isOpen}
+            onClose={setModal}
+          >
+            <div>
+              <p className='text-3xl font-extrabold '>
+                {t('confirm.success.title')}
+              </p>
+              <p className='text-xs'>
+                {t('confirm.success.message')}
+              </p>
+            </div>
+
+            <div>
+              <div>
+                <img src="" alt="" />
+              </div>
+            </div>
           </Modal>
         </div>
       </aside>

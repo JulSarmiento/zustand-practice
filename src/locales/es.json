@@ -13,7 +13,7 @@
     },
     "confirm": {
        "success": {
-         "title": "Orden Confirmada",
+         "title": "Orden Confirmada!",
          "message": "Tu orden ha sido confirmada exitosamente",
          "newOrder": "Nueva Orden"
        },
