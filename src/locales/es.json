@@ -15,6 +15,7 @@
        "success": {
          "title": "Orden Confirmada!",
          "message": "Tu orden ha sido confirmada exitosamente",
+         "totalOrder": "Total Orden",
          "newOrder": "Nueva Orden"
        },
        "error": {

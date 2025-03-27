@@ -15,8 +15,8 @@ const Modal = ({ children, isOpen, onClose }) => {
 
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
-      <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-        <DialogPanel className="max-w-lg space-y-2 shadow-lg rounded-xl bg-white p-12">
+      <div className="fixed inset-0 flex w-screen items-center justify-center md:p-4">
+        <DialogPanel className="max-w-md w-full space-y-2 shadow-lg rounded-xl bg-white p-6">
           <DialogTitle className="font-bold">
             <i className='fas fa-check-circle text-secondary text-2xl' onClick={() => onClose()}/>
           </DialogTitle>
