@@ -4,7 +4,13 @@ import Image from '@components/ui/images/Image';
 import Title from '@components/ui/texts/Title';
 import priceFormat from '@utils/priceFormat';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useCountStore } from '@hooks/useStore';
+
+
+const setCount = () => {
+  useCountStore.setState({ count: 1 });
+}
 
 /**
  * Componente Card
@@ -22,6 +28,7 @@ import { useState } from 'react';
  */
 const Card = ({ product }) => {
   const [active, setActive] = useState(false);
+  const store = useCountStore();
   const { t } = useTranslation();
   const srcSet = `
     ${product.image.thumbnail} 480w,
@@ -30,7 +37,10 @@ const Card = ({ product }) => {
     ${product.image.desktop} 1920w
 `;
 
-  const count = 1;
+  useEffect(() => {
+    setCount()
+  }
+  , [])
 
   return (
     <div className='rounded-md w-full md:max-w-md lg:max-w-xl '>
@@ -41,18 +51,22 @@ const Card = ({ product }) => {
         <ButtonContainer className='absolute w-full flex justify-center -bottom-5 left-0'>
           {
             active ?
-              <Button
+              <div
                 className='w-[60%] lg:w-[65%] flex justify-between items-center px-4 text-rose-50 text-sm h-9 bg-primary py-1 rounded-2xl font-semibold '
               >
-                <i 
-                  onClick={count > 1 ? () => count - 1 : () => setActive(false)}
-                  className='fas fa-minus-circle hover:shadow-md transition-colors duration-300'
-                />
-                <p>
-                  {count}
-                </p>
-                <i className='fas fa-plus-circle'/>
-              </Button>
+                <button
+                  disabled={store.count <= 1}
+                  onClick={() => {store.dec()}}
+                >
+                  <i className='fas fa-minus-circle hover:shadow-md transition-colors duration-300' />
+                </button>
+                <p>{store.count}</p>
+                <button 
+                  onClick={() => {store.inc()}}
+                >
+                  <i className='fas fa-plus-circle hover:shadow-md transition-colors duration-300' />
+                </button>
+              </div>
               :
               <Button
                 onClick={() => setActive(true)}
