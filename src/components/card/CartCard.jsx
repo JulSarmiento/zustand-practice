@@ -1,5 +1,5 @@
 import Title from "@components/ui/texts/Title";
-import priceFormart from "@utils/priceFormat";
+import priceFormat from "@utils/priceFormat";
 
 /**
  * Componente `CartCard` que representa una tarjeta de producto en el carrito de compras.
@@ -32,10 +32,10 @@ const CartCard = ({ product }) => {
           </p>
           <div className="flex mx-3 gap-2 items-center font-semibold text-rose-400">
             <p >
-              {`@ ${priceFormart(product.price)}`}
+              {`@ ${priceFormat(product.price)}`}
             </p>
             <p >
-              {priceFormart(product.price * product.quantity)}
+              {priceFormat(product.price * product.quantity)}
             </p>
           </div>
 

@@ -5,7 +5,7 @@ import Title from '@components/ui/texts/Title';
 import CardContainer from '@components/cardsContainer/CardsContainer';
 import CartCardContainer from '@components/cardsContainer/CartCardContainer';
 import Modal from '@components/modales/Modal';
-import priceFormart from '@utils/priceFormat';
+import priceFormat from '@utils/priceFormat';
 import { useState } from 'react';
 /**
  * Componente principal de la aplicación.
@@ -51,7 +51,7 @@ function App() {
               {t('cart.total')}
             </p>
             <p className='text-black text-2xl font-bold'>
-              {priceFormart(100)}
+              {priceFormat(100)}
             </p>
           </div>
           <div className='px-4 py-2 bg-rose-50 rounded-xl flex justify-center gap-2 items-center'>

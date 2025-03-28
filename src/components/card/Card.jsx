@@ -2,7 +2,7 @@ import Button from '@components/ui/buttons/Button';
 import ButtonContainer from '@components/buttonsContainer/ButtonContainer';
 import Image from '@components/ui/images/Image';
 import Title from '@components/ui/texts/Title';
-import priceFormart from '@utils/priceFormat';
+import priceFormat from '@utils/priceFormat';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 
@@ -69,7 +69,7 @@ const Card = ({ product }) => {
       <div className='mt-6 font-RH'>
         <Title as='h3' className='text-sm font-RH text-rose-300'>{product.category}</Title>
         <Title as='h2' className='text-base font-semibold text-rose-900 hover:text-rose-700 transition-colors duration-300'>{product.name}</Title>
-        <Title as='h4' className='text-sm font-semibold text-primary'>{priceFormart(product.price)}</Title>
+        <Title as='h4' className='text-sm font-semibold text-primary'>{priceFormat(product.price)}</Title>
       </div>
     </div>
   );

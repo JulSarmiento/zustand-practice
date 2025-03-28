@@ -4,9 +4,9 @@
  * @returns {string} Una cadena de texto que representa el precio formateado 
  * en formato de moneda con estilo 'currency', utilizando el idioma 'es-ES' 
  * y la moneda 'USD', con un mínimo de dos dígitos decimales.
- * @example priceFormart(1000) // returns "$1,000.00"
+ * @example priceFormat(1000) // returns "$1,000.00"
  */
-const priceFormart = (price) => {
+const priceFormat = (price) => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -14,4 +14,4 @@ const priceFormart = (price) => {
   }).format(price);
 }
 
-export default priceFormart;
+export default priceFormat;
