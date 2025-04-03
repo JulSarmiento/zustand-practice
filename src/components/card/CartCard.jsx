@@ -12,7 +12,7 @@ import priceFormat from "@utils/priceFormat";
  * además de un botón para eliminarlo del carrito.
  * @example <CartCard product={product} />
  */
-const CartCard = ({ product }) => {
+const CartCard = ({ product, removeFromCart }) => {
   return (
     <div
       className="flex justify-between font-RH items-center gap-4 pb-4 border-b-[1px] border-rose-100"
@@ -41,9 +41,11 @@ const CartCard = ({ product }) => {
 
         </div>
       </div>
-      <div className="border-[2px] font-semibold text-rose-400 rounded-full size-6 flex justify-center items-center">
+      <button 
+        onClick={() => removeFromCart(product.id)}
+        className="border-[2px] font-semibold text-rose-400 rounded-full size-6 flex justify-center items-center">
         <i className="fas fa-close"></i>
-      </div>
+      </button>
     </div>
   )
 };

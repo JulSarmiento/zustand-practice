@@ -4,7 +4,7 @@ import Image from '@components/ui/images/Image';
 import Title from '@components/ui/texts/Title';
 import priceFormat from '@utils/priceFormat';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCountStore } from '@hooks/useStore';
 
 /**
@@ -23,7 +23,7 @@ import { useCountStore } from '@hooks/useStore';
  */
 const Card = ({ product }) => {
   const [active, setActive] = useState(false);
-  const { addToCart, removeFromCart, cart } = useCountStore();
+  const { addToCart, removeFromCart, decreaseQuantity, cart } = useCountStore();
   const { t } = useTranslation();
 
   const srcSet = `
@@ -33,23 +33,35 @@ const Card = ({ product }) => {
     ${product.image.desktop} 1920w
   `;
 
-  const isInCart = cart.items.some((item) => item.id === product.id);
+  const getProductFromCart = () => {
+    return cart.items.find((item) => item.id === product.id);
+  };
+
+  const cartProduct = getProductFromCart();
+
+  useEffect(() => {
+    setActive(cartProduct?.quantity > 0);
+  }, [cartProduct]);
 
   const handleAddToCart = () => {
     addToCart(product, 1);
     setActive(true);
   };
 
-  const handleRemoveFromCart = () => {
-    removeFromCart(product.id);
-    setActive(false);
+  const handleDecreaseQuantity = () => {
+    if (cartProduct.quantity > 1) {
+      decreaseQuantity(product.id);
+    } else {
+      removeFromCart(product.id);
+      setActive(false);
+    }
   };
 
   return (
     <div className="rounded-md w-full md:max-w-md lg:max-w-xl">
       <div
         className={`relative cursor-pointer ${
-          active || isInCart
+          active || cartProduct?.quantity > 0 
             ? 'border-3 border-rose-400 rounded-xl'
             : 'border-3 border-transparent rounded-xl'
         }`}
@@ -61,12 +73,12 @@ const Card = ({ product }) => {
           className="w-full h-[200px] rounded-xl object-cover hover:opacity-90 transition-opacity duration-300"
         />
         <ButtonContainer className="absolute w-full flex justify-center -bottom-5 left-0">
-          {active || isInCart ? (
+          {active || cartProduct?.quantity > 0 ? (
             <div className="w-[60%] lg:w-[65%] flex justify-between items-center px-4 text-rose-50 text-sm h-9 bg-primary py-1 rounded-2xl font-semibold">
-              <button onClick={handleRemoveFromCart}>
+              <button onClick={() => handleDecreaseQuantity()}>
                 <i className="fas fa-minus-circle hover:shadow-md transition-colors duration-300" />
               </button>
-              <p>{product.quantity || 1}</p>
+              <p>{cartProduct?.quantity}</p>
               <button onClick={handleAddToCart}>
                 <i className="fas fa-plus-circle hover:shadow-md transition-colors duration-300" />
               </button>

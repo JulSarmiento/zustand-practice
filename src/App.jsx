@@ -6,7 +6,9 @@ import CardContainer from '@components/cardsContainer/CardsContainer';
 import CartCardContainer from '@components/cardsContainer/CartCardContainer';
 import Modal from '@components/modales/Modal';
 import priceFormat from '@utils/priceFormat';
+import { useCountStore } from '@hooks/useStore';
 import { useState } from 'react';
+
 /**
  * Componente principal de la aplicación.
  * Este componente organiza la estructura principal de la interfaz dividiéndola en 
@@ -19,8 +21,7 @@ import { useState } from 'react';
 function App() {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-
-  const count = 1
+  const { cart, clearCart } = useCountStore();
 
   const setModal = () => {
     setIsOpen(!isOpen)
@@ -42,7 +43,7 @@ function App() {
           as="h2"
           className="text-2xl mb-6 text-primary font-bold place-self-start"
         >
-          {`${t('cart.title')} (${count})`}
+          {`${t('cart.title')} (${cart.count})`}
         </Title>
         <CartCardContainer />
         <div>
@@ -51,7 +52,7 @@ function App() {
               {t('cart.total')}
             </p>
             <p className='text-black text-2xl font-bold'>
-              {priceFormat(100)}
+              {priceFormat(cart.total)}
             </p>
           </div>
           <div className='px-4 py-2 bg-rose-50 rounded-xl flex justify-center gap-2 items-center'>
@@ -78,35 +79,38 @@ function App() {
               </p>
             </div>
             <div className='bg-rose-50 p-4 rounded-xl mt-4'>
-              <div className='flex gap-4 items-center justify-between border-b-[1px] border-rose-100 pb-4'>
-                <div className='flex gap-4 items-center'>
-                  <div className='w-1/8'>
-                    <img src="images/image-baklava-desktop.jpg" alt="Fotito del producto" />
-                  </div>
-                  <div className='flex flex-col justify-start items-start gap-2'>
-                    <Title className='truncate'>
-                      Nombre del producto
-                    </Title>
-                    <div className='flex justify-evenly gap-2'>
-                      <p>4x</p>
-                      <p>@$100</p>
+              {cart.items.map((product) => (
+                <div className='flex gap-4 items-center justify-between border-b-[1px] border-rose-100 pb-4'>
+                  <div className='flex gap-4 items-center'>
+                    <img src={product.image.thumbnail} alt="Fotito del producto" className='size-12' />
+                    <div className='flex flex-col justify-start items-start gap-2'>
+                      <Title className='truncate'>
+                        {product.name}
+                      </Title>
+                      <div className='flex justify-evenly gap-2'>
+                        <p>{`${product.quantity}x`}</p>
+                        <p>{priceFormat(product.price)}</p>
+                      </div>
                     </div>
                   </div>
+                  <div>
+                    <p>{priceFormat(product.price * product.quantity)}</p>
+                  </div>
                 </div>
-                <div>
-                  <p>$400</p>
-                </div>
-              </div>
+              ))}
               <div className='mt-5 flex justify-between'>
                 <Title>
                   {t('confirm.success.totalOrder')}:
                 </Title>
-                <p>$400</p>
+                <p>{priceFormat(cart.total)}</p>
               </div>
             </div>
             <div>
               <Button
-                onClick={setModal}
+                onClick={() => {
+                  setModal();
+                  clearCart();
+                }}
                 className='w-full bg-primary text-white h-8 rounded-2xl'
               >
                 {t('confirm.success.newOrder')}
