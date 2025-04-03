@@ -1,7 +1,8 @@
 {
   "translations": {
     "home": {
-      "title": "Desserts"
+      "title": "Desserts",
+      "button": "Add to Cart"
     },
     "cart": {
       "title": "Your Cart",
@@ -12,8 +13,9 @@
     },
     "confirm": {
       "success": {
-        "title": "Order Confirmed",
+        "title": "Order Confirmed!",
         "message": "Your order has been successfully confirmed",
+        "totalOrder": "Order Total",
         "newOrder": "New Order"
       },
       "error": {

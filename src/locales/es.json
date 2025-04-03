@@ -1,19 +1,21 @@
 {
   "translations": {
     "home": {
-      "title": "Postres"
+      "title": "Postres",
+      "button": "Agregar al Carrito"
     },
     "cart": {
        "title": "Tu Carrito",
        "empty": "Tu carrito está vacío",
        "total": "Total Orden",
-       "note": "Este es un envio con emosiones neutrales",
+      "note": "Envío con emociones neutrales",
        "checkout": "Confirmar Orden"
     },
     "confirm": {
        "success": {
-         "title": "Orden Confirmada",
+         "title": "Orden Confirmada!",
          "message": "Tu orden ha sido confirmada exitosamente",
+         "totalOrder": "Total Orden",
          "newOrder": "Nueva Orden"
        },
        "error": {

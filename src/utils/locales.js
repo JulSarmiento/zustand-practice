@@ -22,25 +22,20 @@
  * @throws {Error} Si ocurre algún problema al importar los archivos de traducción.
  */
 const LoadLocales = () => {
-  try {
-    const locales = import.meta.glob('../locales/*.json', {
-      eager: true,
-      import: 'default',
-    });
+  const locales = import.meta.glob('../locales/*.json', {
+    eager: true,
+    import: 'default',
+  });
 
-    return Object.entries(locales).reduce((acc, [path, translation]) => {
-      const local = path.match(/\/([^/]+)(?=\.json$)/)?.[1];
+  return Object.entries(locales).reduce((acc, [path, translation]) => {
+    const local = path.match(/\/([^/]+)(?=\.json$)/)?.[1];
 
-      if (local) {
-        acc[local] = translation;
-      }
+    if (local) {
+      acc[local] = translation;
+    }
 
-      return acc;
-    }, {});
-  } catch (error) {
-    console.error('Error loading locales:', error);
-    return {};
-  }
+    return acc;
+  }, {});
 };
 
 export default LoadLocales;
