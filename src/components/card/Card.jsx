@@ -85,7 +85,7 @@ const Card = ({ product }) => {
             </div>
           ) : (
             <Button
-              onClick={() => handleAddToCart(product, 1)}
+              onClick={() => handleAddToCart()}
               className="w-[60%] lg:w-[65%] flex justify-center items-center text-sm h-9 bg-white border-[1px] border-rose-500 py-1 rounded-2xl font-semibold hover:bg-rose-100 transition-colors duration-300"
             >
               <i className="fas fa-shopping-cart mr-2 hover:shadow-md transition-colors duration-300"></i>

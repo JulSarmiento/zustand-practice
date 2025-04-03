@@ -2,8 +2,8 @@ import '@plugins/i18n';
 import { useTranslation } from 'react-i18next';
 import Button from '@components/ui/buttons/Button';
 import Title from '@components/ui/texts/Title';
-import CardContainer from '@components/cardsContainer/CardsContainer';
-import CartCardContainer from '@components/cardsContainer/CartCardContainer';
+import CardsContainer from '@components/cardsContainer/CardsContainer';
+import CartCardsContainer from '@components/cardsContainer/CartCardContainer';
 import Modal from '@components/modales/Modal';
 import priceFormat from '@utils/priceFormat';
 import { useCountStore } from '@hooks/useStore';
@@ -36,7 +36,7 @@ function App() {
         >
           {t('home.title')}
         </Title>
-        <CardContainer />
+        <CardsContainer />
       </main>
       <aside className='w-full bg-white h-[50%] rounded-xl p-4 md:mt-4 lg:mt-0 lg:w-[60%] xl:w-[50%]'>
         <Title
@@ -45,7 +45,7 @@ function App() {
         >
           {`${t('cart.title')} (${cart.count})`}
         </Title>
-        <CartCardContainer />
+        <CartCardsContainer />
         <div>
           <div className='w-full flex justify-between my-5'>
             <p className='text-rose-500 font-semibold text-lg'>
