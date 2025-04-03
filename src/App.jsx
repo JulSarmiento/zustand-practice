@@ -23,8 +23,8 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const { cart, clearCart } = useCountStore();
 
-  const setModal = () => {
-    setIsOpen(!isOpen)
+  const closeModal = () => {
+    setIsOpen(false);
   }
 
   return (
@@ -68,7 +68,7 @@ function App() {
           </button>
           <Modal
             isOpen={isOpen}
-            onClose={setModal}
+            onClose={closeModal}
           >
             <div className='w-full'>
               <p className='text-3xl font-extrabold '>
@@ -108,7 +108,7 @@ function App() {
             <div>
               <Button
                 onClick={() => {
-                  setModal();
+                  closeModal();
                   clearCart();
                 }}
                 className='w-full bg-primary text-white h-8 rounded-2xl'
