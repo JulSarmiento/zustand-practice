@@ -43,7 +43,7 @@ const CartCard = ({ product, removeFromCart }) => {
       </div>
       <button 
         onClick={() => removeFromCart(product.id)}
-        className="border-[2px] font-semibold text-rose-400 rounded-full size-6 flex justify-center items-center">
+        className="border-[2px] font-semibold text-rose-400 rounded-full w-6 h-6 flex justify-center items-center">
         <i className="fas fa-close"></i>
       </button>
     </div>

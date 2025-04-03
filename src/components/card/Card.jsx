@@ -60,10 +60,10 @@ const Card = ({ product }) => {
   return (
     <div className="rounded-md w-full md:max-w-md lg:max-w-xl">
       <div
-        className={`relative cursor-pointer ${
+        className={`relative cursor-pointer border-[3px] ${
           active || cartProduct?.quantity > 0 
-            ? 'border-3 border-rose-400 rounded-xl'
-            : 'border-3 border-transparent rounded-xl'
+            ? ' border-rose-400 rounded-xl'
+            : ' border-transparent rounded-xl'
         }`}
       >
         <Image

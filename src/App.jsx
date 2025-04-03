@@ -63,7 +63,7 @@ function App() {
           </div>
           <button
             onClick={() => setIsOpen(true)}
-            className='w-full bg-primary rounded-4xl text-white py-4 mt-5 font-semibold'>
+            className='w-full bg-primary rounded-full text-white py-4 mt-5 font-semibold'>
             {t('cart.checkout')}
           </button>
           <Modal
