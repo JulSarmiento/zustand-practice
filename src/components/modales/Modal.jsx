@@ -18,9 +18,11 @@ const Modal = ({ children, isOpen, onClose }) => {
       <div className="fixed inset-0 flex w-screen items-center justify-center md:p-4">
         <DialogPanel className="max-w-md w-full space-y-2 shadow-lg rounded-xl bg-white p-6">
           <DialogTitle className="font-bold">
-            <i className='fas fa-check-circle text-secondary text-2xl' onClick={() => onClose()}/>
+            <button className='text-secondary text-2xl' onClick={() => onClose()} aria-label="Close">
+              <i className='fas fa-check-circle' />
+            </button>
           </DialogTitle>
-            {children}
+          {children}
         </DialogPanel>
       </div>
     </Dialog>

@@ -15,8 +15,8 @@ const CardContainer = () => {
 
   return (
     <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 place gap-6">
-      {products?.map((product, index) => (
-        <Card key={index} product={product} />
+      {products?.map((product) => (
+        <Card key={product.id} product={product} />
       ))}
     </div>
   );
