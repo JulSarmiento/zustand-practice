@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
-import { ViteAliases } from "vite-aliases";
+import tsconfigPaths from "vite-tsconfig-paths";
 import { compression } from "vite-plugin-compression2";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react-swc";
@@ -10,9 +10,7 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    ViteAliases({
-      prefix: '@',
-    }),
+    tsconfigPaths(),
     compression(),
     new ViteImageOptimizer({
       limit: 8192,
