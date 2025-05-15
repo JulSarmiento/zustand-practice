@@ -13,7 +13,7 @@ const CartCardsContainer = () => {
 
   return (
     <div className="cartCardsContainer">
-      {cart.items.map((product) => (
+      {cart.items?.map((product) => (
         <CartCard key={product.id} product={product} removeFromCart={removeFromCart}/>
       ))}
     </div>

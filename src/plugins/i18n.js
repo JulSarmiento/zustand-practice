@@ -17,7 +17,7 @@ i18n
     defaultNS: 'translations',
     resources: LoadLocales(),
     preload: ['es'],
-    fallbackLng: ['es', 'dev'],
+    fallbackLng: ['es', 'en'],
     interpolation: {
       escapeValue: false,
     },

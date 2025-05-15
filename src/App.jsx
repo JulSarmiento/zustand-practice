@@ -79,7 +79,7 @@ function App() {
               </p>
             </div>
             <div className='bg-rose-50 p-4 rounded-xl mt-4'>
-              {cart.items.map((product) => (
+              {cart.items?.map((product) => (
                 <div className='flex gap-4 items-center justify-between border-b-[1px] border-rose-100 pb-4'>
                   <div className='flex gap-4 items-center'>
                     <img src={product.image.thumbnail} alt="Fotito del producto" className='size-12' />

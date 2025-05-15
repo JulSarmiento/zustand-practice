@@ -28,10 +28,12 @@ const useApi = () => {
 
   console.log('Language:', i18n.language); //
 
+  const lang = i18n.language === 'es' ? 'es' : 'en'; // Determina el idioma a utilizar
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await backApi.get(`${i18n.language}.json`);
+        const response = await backApi.get(`${lang}.json`);
         console.log('Fetched data:', response.data); // Debugging log
         setData(response.data);
       } catch (error) {
@@ -43,7 +45,7 @@ const useApi = () => {
 
     fetchData();
   }
-  , [i18n.language]);
+  , [lang]);
 
   return {
     data,

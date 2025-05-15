@@ -11,7 +11,15 @@ import useProducts from '@hooks/useApi';
  * @example <CardsContainer />
  */
 const CardsContainer = () => {
-  const { data: products } = useProducts();
+  const { data: products, loading } = useProducts();
+
+  if (loading) {
+    return (
+      <div>
+        cargando...
+      </div>
+    );
+  }
 
   return (
     <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 place-items-center gap-6">

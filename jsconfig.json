@@ -12,6 +12,27 @@
       "@*": [
         "src/*"
       ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@locales/*": [
+        "src/locales/*"
+      ],
+      "@plugins/*": [
+        "src/plugins/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
     }
   }
 }

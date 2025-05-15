@@ -69,7 +69,7 @@ const useCountStore = create((set) => ({
     set((state) => {
       const existingItem = state.cart.items.find((cartItem) => cartItem.id === item.id);
       const updatedItems = existingItem
-        ? state.cart.items.map((cartItem) =>
+        ? state.cart.items?.map((cartItem) =>
             cartItem.id === item.id
               ? { ...cartItem, quantity: cartItem.quantity + quantity }
               : cartItem
@@ -89,7 +89,7 @@ const useCountStore = create((set) => ({
       const existingItem = state.cart.items.find((item) => item.id === itemId);
       if (!existingItem || existingItem.quantity <= 1) return state;
 
-      const updatedItems = state.cart.items.map((item) =>
+      const updatedItems = state.cart.items?.map((item) =>
         item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item
       );
 
